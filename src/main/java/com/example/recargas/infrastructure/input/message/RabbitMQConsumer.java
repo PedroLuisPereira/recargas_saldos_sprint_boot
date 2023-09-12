@@ -1,0 +1,20 @@
+package com.example.recargas.infrastructure.input.message;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.stereotype.Service;
+
+/**
+ * Recibir un String
+ */
+@Service
+public class RabbitMQConsumer {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(RabbitMQConsumer.class);
+
+    @RabbitListener(queues = {"${rabbitmq.queue.name}"})
+    public void consume(String message) {
+        LOGGER.info("Received message -> {}", message);
+    }
+}

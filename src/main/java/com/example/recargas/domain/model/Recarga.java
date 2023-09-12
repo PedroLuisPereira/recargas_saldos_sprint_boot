@@ -24,34 +24,24 @@ public class Recarga implements Serializable {
 
     public static Recarga getInstance(long id, double saldo, String operador ) {
 
-        Validacion.validarMayorQueCero(saldo, "El campo valor es obligatorio");
+        Validacion.validarValorPositivo(saldo, "El campo valor es obligatorio");
         Validacion.validarObligatorio(operador, "El campo operador es obligatorio");
 
-//        validarCelular(celular);
-//        validarOperador(operador);
-//        validarOperadorCelular(operador, celular);
+        validarOperador(operador);
 
         return new Recarga(id, saldo, operador);
     }
 
     public static Recarga getInstance(double saldo, String operador) {
 
-        Validacion.validarMayorQueCero(saldo, "El campo valor es obligatorio");
+        Validacion.validarValorPositivo(saldo, "El campo saldo debe se positivo");
         Validacion.validarObligatorio(operador, "El campo operador es obligatorio");
 
-
-//        validarCelular(celular);
-//        validarOperador(operador);
-//        validarOperadorCelular(operador, celular);
+        validarOperador(operador);
 
         return new Recarga(null, saldo, operador);
     }
 
-    private static void validarCelular(String celular) {
-        if (celular.length() != 10) {
-            throw new CampoConException("Celular incorrecto");
-        }
-    }
 
     private static void validarOperador(String operador) {
         long total = Arrays.stream(Operador.values())
@@ -62,28 +52,6 @@ public class Recarga implements Serializable {
             throw new CampoConException("Operador incorrecto");
         }
     }
-
-//    private static void validarOperadorCelular(String operador, String celular) {
-//
-//        int prefijo = Integer.parseInt(celular.substring(0, 3));
-//        int[] prefijosOperador;
-//
-//        if (operador.equalsIgnoreCase("TIGO")) {
-//            prefijosOperador = TIGO;
-//        } else if (operador.equalsIgnoreCase("CLARO")) {
-//            prefijosOperador = CLARO;
-//        } else {
-//            prefijosOperador = MOVISTART;
-//        }
-//
-//        long total = Arrays.stream(prefijosOperador)
-//          .filter(value -> value == prefijo)
-//          .count();
-//
-//        if (total == 0) {
-//            throw new CampoConException("Celular no corresponde al operador");
-//        }
-//    }
 
 
     public Long getId() {

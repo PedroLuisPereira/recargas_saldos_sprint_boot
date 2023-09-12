@@ -25,6 +25,12 @@ public class Validacion {
         }
     }
 
+    public static void validarValorPositivo(Double valor, String mensaje) {
+        if (valor < 0) {
+            throw new CampoConException(mensaje);
+        }
+    }
+
     public static void validarSeaNumerico(String valor, String mensaje) {
         try {
             Long.parseLong(valor);

@@ -2,13 +2,11 @@ package com.example.recargas.infrastructure.output.persistence.mapper;
 
 import com.example.recargas.domain.model.Recarga;
 import com.example.recargas.infrastructure.output.persistence.entity.RecargaEntity;
-import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
+
 
 public class RecargaMapper {
 
-    @Autowired
-    private ModelMapper mapper;
+  
 
     public Recarga toRecarga(RecargaEntity entity) {
 

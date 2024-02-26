@@ -4,7 +4,6 @@ import com.example.recargas.domain.dto.RecargaSolicitudDto;
 import com.example.recargas.domain.exception.NoExisteOperadorException;
 import com.example.recargas.domain.exception.NoSaldoException;
 import com.example.recargas.domain.exception.RegistroDuplicadoException;
-import com.example.recargas.domain.exception.RegistroNotFoundException;
 import com.example.recargas.domain.model.Recarga;
 import com.example.recargas.domain.ports.RecargaRepositorio;
 
